@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - type: bind
         source: ./laravel
@@ -34,7 +34,7 @@ services:
   db:
     image: postgres:13.3
     volumes:
-      - ./db/data:/var/lib/postgresql
+      - ./db/postgresql:/var/lib/postgresql
       - ./db/init:/docker-entrypoint-initdb.d
     ports:
       - 15432:5432
