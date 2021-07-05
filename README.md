@@ -5,15 +5,45 @@
 - PostgreSQL v13.3
 
 ## 構築方法
-1. `docker compose build`
-2. `docker compose exec app composer install`
-3. `docker compose up`
+1. ビルド
+```
+docker compose build
+```
+
+2. ライブラリのインストール
+```
+docker compose exec app composer install
+```
+
+3. コンテナ作成 ＆ 起動
+```
+docker compose up
+```
+
 4. http://localhost:8080/ にアクセス
 5. 初期画面ページが表示されれば構築成功！
 
-マイグレーション実行方法
+#### よく使うコマンド(おまけ)
+マイグレーション実行
 ```
-docker-compose exec app php artisan migrate
+docker compose exec app php artisan migrate
+```
+
+コンテナでコマンド実行
+```
+docker compose exec ＜サービス名＞ ＜実行したいコマンド＞
+docker compose exec db echo 'hello'
+```
+
+upしたコンテナに入る
+```
+docker compose exec ＜サービス名＞ sh
+# または
+docker compose exec ＜サービス名＞ bash
+
+docker compose exec db sh
+# または
+docker compose exec db bash
 ```
 
 ## 参考記事
