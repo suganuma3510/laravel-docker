@@ -5,9 +5,10 @@
 - PostgreSQL v13.3
 
 ## 構築方法
-1. `docker-compose build`
-3. `docker-compose up`
-4. http://localhost/ にアクセス
+1. `docker compose build`
+2. `docker compose exec app composer install`
+3. `docker compose up`
+4. http://localhost:8080/ にアクセス
 5. 初期画面ページが表示されれば構築成功！
 
 マイグレーション実行方法
